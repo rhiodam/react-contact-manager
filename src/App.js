@@ -16,6 +16,7 @@ import { Provider } from "./context";
 // import "bootstrap/dist/css/boostrap.min.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import bootstrap from "bootstrap";
+import AddContact from "./components/contacts/AddContact";
 
 class App extends Component {
   render() {
@@ -39,6 +40,7 @@ class App extends Component {
 
           {/* sending branding props to header component */}
           <Header branding="Contact Manager" />
+          <AddContact/>
           <LikeDislike/> 
           <Like/>
           <Counter/>
