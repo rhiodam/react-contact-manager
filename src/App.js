@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 // import Contact from "./components/Contact";
-import Contacts from "./components/Contacts";
-import Header from "./components/Header";
-import LikeDislike from "./components/LikeDislike";
-import Like from "./components/Like";
-import Counter from "./components/Counter";
+import Contacts from "./components/contacts/Contacts";
+import Header from "./components/layout/Header";
+import LikeDislike from "./components/test/LikeDislike";
+import Like from "./components/test/Like";
+import Counter from "./components/test/Counter";
 import logo from "./logo.svg";
 import "./App.css";
 

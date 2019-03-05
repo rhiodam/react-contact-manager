@@ -1,7 +1,7 @@
 // rcc
 import React, { Component } from "react";
 
-import { Consumer } from "../context";
+import { Consumer } from "../../context";
 
 //component
 import Contact from "./Contact";

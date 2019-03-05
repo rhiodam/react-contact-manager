@@ -87,9 +87,3 @@ export default class LikeDislike extends Component {
     }
 }
 
-666curseo
-
-
-https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
-
-https://blog.usejournal.com/how-much-do-you-actually-know-about-annotations-in-java-b999e100b929?TGa=true

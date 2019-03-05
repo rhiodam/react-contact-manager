@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./contact.css";
+import "../contacts/contact.css";
 
 const Header = props => {
   const { branding } = props;
