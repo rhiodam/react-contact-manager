@@ -30,7 +30,7 @@ class Contact extends Component {
   render() {
     //  destructuring
     // const { name, age, phone } = this.props;
-    const { id, name, age, phone, email } = this.props.contact;
+    const { id, name, age, phone, email ,address } = this.props.contact;
     const { showContactInfo } = this.state;
     // const deleteClickHandler = this.props;
 
@@ -66,12 +66,11 @@ class Contact extends Component {
           <li className="list-group-item">Phone : {contact.phone}</li>
           <li className="list-group-item">Age : {contact.age}</li> */}
 
+                  <li className="list-group-item">Name : {name}</li>
                   <li className="list-group-item">Email : {email}</li>
                   <li className="list-group-item">Phone : {phone}</li>
-                  <li className="list-group-item">Age : {age}</li>
-                  <li className="list-group-item">
-                    Address : Tebet barat dalam
-                  </li>
+                  {/*<li className="list-group-item">Age : {age}</li>*/}
+                  <li className="list-group-item">Address : {address} </li>
                 </ul>
               ) : null}
             </div>
