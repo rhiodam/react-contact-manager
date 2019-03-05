@@ -16,7 +16,7 @@ const reducer = (state, action) => {
         case "ADD_CONTACT":
             return {
                 ...state,
-                contacts: [action.payload , ...state]
+                contacts: [action.payload , ...state.contacts]
             };
 
         default:
@@ -33,28 +33,32 @@ export class Provider extends Component {
                 name: "Rhioda Muthie",
                 email: "rhioda.muthie@gmail.com",
                 phone: "085271062544",
-                age: 24
+                age: 24,
+                address : "Tebet barat dalam"
             },
             {
                 id: 2,
                 name: "Fitya Fikriyah",
                 email: "fifislk@gmail.com",
                 phone: "081266698197",
-                age: 23
+                age: 23,
+                address : "Pinang xxx"
             },
             {
                 id: 3,
                 name: "Rhioda Muthie",
                 email: "rhioda.muthie@gmail.com",
                 phone: "085271062544",
-                age: 24
+                age: 24,
+                address : "Tebet barat dalam"
             },
             {
                 id: 4,
                 name: "Fitya Fikriyah",
                 email: "fifislk@gmail.com",
                 phone: "081266698197",
-                age: 23
+                age: 23,
+                address : "Pinang xxx"
             }
         ],
         dispatch: action => {
