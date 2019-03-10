@@ -22,18 +22,24 @@ export default class AddContact extends Component {
         const {name, email, phone, address} = this.state;
 
         // Check for errors
+        // Urutan berpengaruh pas pengecekan wkwkwk
         if(name === ''){
             this.setState({errors : {name : 'Name is required'}});
-        }
-        if(phone === ''){
-            this.setState({errors : {phone : 'Phone is required'}});
+            return;
         }
         if(email === ''){
             this.setState({errors : {email : 'Email is required'}});
+            return;
         }
-        if(address === ''){
-            this.setState({errors : {address : 'Address is required'}});
+        if(phone === ''){
+            this.setState({errors : {phone : 'Phone is required'}});
+            return;
         }
+
+        // if(address === ''){
+        //     this.setState({errors : {address : 'Address is required'}});
+        //     return;
+        // }
 
         // New Contact object
         const newContact = {
@@ -58,8 +64,6 @@ export default class AddContact extends Component {
 
     render() {
         const {name, email, phone, address ,errors} = this.state;
-
-
 
         return (
             <Consumer>
