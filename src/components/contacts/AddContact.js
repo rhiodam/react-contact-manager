@@ -50,6 +50,7 @@ export default class AddContact extends Component {
             address
         };
 
+        // dispatch to context
         dispatch({type: "ADD_CONTACT", payload: newContact});
 
         // Clear the state
@@ -60,6 +61,9 @@ export default class AddContact extends Component {
             // address: "",
             errors : {}
         });
+
+        // send to the contact list component
+        this.props.history.push('/');
     };
 
     render() {
