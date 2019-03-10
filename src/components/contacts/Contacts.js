@@ -27,6 +27,8 @@ class Contacts extends Component {
         {value => {
           const { contacts } = value;
           return (
+
+              // Gantiin tag div yang cuma bisa satu bisa ga banyak div
             <React.Fragment>
               {contacts.map(contact => (
                 <Contact
