@@ -41,9 +41,9 @@ class App extends Component {
           {/* sending branding props to header component */}
           <Header branding="Contact Manager" />
           <AddContact/>
-          <LikeDislike/> 
-          <Like/>
-          <Counter/>
+          {/*<LikeDislike/> */}
+          {/*<Like/>*/}
+          {/*<Counter/>*/}
           <div className="container">
             <Contacts />
           </div>
