@@ -8,7 +8,8 @@ export default class AddContact extends Component {
         name: "",
         email: "",
         phone: "",
-        address: ""
+        address: "",
+        errors : {}
     };
 
     onChange = e => {
@@ -20,6 +21,21 @@ export default class AddContact extends Component {
         console.log(this.state);
         const {name, email, phone, address} = this.state;
 
+        // Check for errors
+        if(name === ''){
+            this.setState({errors : {name : 'Name is required'}});
+        }
+        if(phone === ''){
+            this.setState({errors : {phone : 'Phone is required'}});
+        }
+        if(email === ''){
+            this.setState({errors : {email : 'Email is required'}});
+        }
+        if(address === ''){
+            this.setState({errors : {address : 'Address is required'}});
+        }
+
+        // New Contact object
         const newContact = {
             id: uuid(),
             name,
@@ -29,10 +45,21 @@ export default class AddContact extends Component {
         };
 
         dispatch({type: "ADD_CONTACT", payload: newContact});
+
+        // Clear the state
+        this.setState({
+            // name: "",
+            // email: "",
+            // phone: "",
+            // address: "",
+            errors : {}
+        });
     };
 
     render() {
-        const {name, email, phone, address} = this.state;
+        const {name, email, phone, address ,errors} = this.state;
+
+
 
         return (
             <Consumer>
@@ -61,29 +88,47 @@ export default class AddContact extends Component {
                                         value={name}
                                         placeholder="Enter Name..."
                                         name="name"
+                                        error={errors.name}
                                     />
-                                    <div className="form-group">
-                                        <label htmlFor="email">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            className="form-control form-control-lg"
-                                            placeholder="Enter Email..."
-                                            value={email}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="phone">Phone</label>
-                                        <input
-                                            type="text"
-                                            name="phone"
-                                            className="form-control form-control-lg"
-                                            placeholder="Enter Phone..."
-                                            value={phone}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
+                                    <TextInputGroup
+                                        label="Email"
+                                        onChange={this.onChange}
+                                        value={email}
+                                        type={email}
+                                        placeholder="Enter Email..."
+                                        name="email"
+                                        error={errors.email}
+                                    />
+                                    <TextInputGroup
+                                        label="Phone"
+                                        onChange={this.onChange}
+                                        value={phone}
+                                        placeholder="Enter Phone..."
+                                        name="phone"
+                                        error={errors.phone}
+                                    />
+                                    {/*<div className="form-group">*/}
+                                        {/*<label htmlFor="email">Email</label>*/}
+                                        {/*<input*/}
+                                            {/*type="email"*/}
+                                            {/*name="email"*/}
+                                            {/*className="form-control form-control-lg"*/}
+                                            {/*placeholder="Enter Email..."*/}
+                                            {/*value={email}*/}
+                                            {/*onChange={this.onChange}*/}
+                                        {/*/>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="form-group">*/}
+                                        {/*<label htmlFor="phone">Phone</label>*/}
+                                        {/*<input*/}
+                                            {/*type="text"*/}
+                                            {/*name="phone"*/}
+                                            {/*className="form-control form-control-lg"*/}
+                                            {/*placeholder="Enter Phone..."*/}
+                                            {/*value={phone}*/}
+                                            {/*onChange={this.onChange}*/}
+                                        {/*/>*/}
+                                    {/*</div>*/}
                                     <div className="form-group">
                                         <label htmlFor="address">Address</label>
                                         <input
