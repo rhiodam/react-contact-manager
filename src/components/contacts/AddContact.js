@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {Consumer} from "../../context";
-import uuid from "uuid";
+// import uuid from "uuid";
 import TextInputGroup from "../layout/TextInputGroup";
+import axios from 'axios';
 
 export default class AddContact extends Component {
     state = {
@@ -16,7 +17,7 @@ export default class AddContact extends Component {
         this.setState({[e.target.name]: e.target.value});
     };
 
-    onSubmit = (dispatch, e) => {
+     onSubmit = async (dispatch, e) => {
         e.preventDefault();
         console.log(this.state);
         const {name, email, phone, address} = this.state;
@@ -43,15 +44,20 @@ export default class AddContact extends Component {
 
         // New Contact object
         const newContact = {
-            id: uuid(),
+            // id: uuid(),
             name,
             email,
-            phone,
-            address
+            phone
+            // ,address
         };
 
+        const res = await axios.post(
+            'https://jsonplaceholder.typicode.com/users',
+            newContact
+        );
+
         // dispatch to context
-        dispatch({type: "ADD_CONTACT", payload: newContact});
+        dispatch({type: "ADD_CONTACT", payload: res.data});
 
         // Clear the state
         this.setState({
@@ -67,7 +73,7 @@ export default class AddContact extends Component {
     };
 
     render() {
-        const {name, email, phone, address ,errors} = this.state;
+        const {name, email, phone ,errors} = this.state;
 
         return (
             <Consumer>
@@ -137,17 +143,17 @@ export default class AddContact extends Component {
                                             {/*onChange={this.onChange}*/}
                                         {/*/>*/}
                                     {/*</div>*/}
-                                    <div className="form-group">
-                                        <label htmlFor="address">Address</label>
-                                        <input
-                                            type="text"
-                                            name="address"
-                                            className="form-control form-control-lg"
-                                            placeholder="Enter Address..."
-                                            value={address}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
+                                    {/*<div className="form-group">*/}
+                                        {/*<label htmlFor="address">Address</label>*/}
+                                        {/*<input*/}
+                                            {/*type="text"*/}
+                                            {/*name="address"*/}
+                                            {/*className="form-control form-control-lg"*/}
+                                            {/*placeholder="Enter Address..."*/}
+                                            {/*value={address}*/}
+                                            {/*onChange={this.onChange}*/}
+                                        {/*/>*/}
+                                    {/*</div>*/}
                                     <input
                                         type="submit"
                                         value="Add Contact"

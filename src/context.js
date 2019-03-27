@@ -1,5 +1,6 @@
 // Provider in redux
 import React, {Component} from "react";
+import axios from 'axios';
 
 const Context = React.createContext();
 
@@ -27,17 +28,19 @@ const reducer = (state, action) => {
 export class Provider extends Component {
     // <!--  -->
     state = {
-        contacts: [
-            {
-                id: 1,
-                name: "Rhioda Muthie",
-                email: "rhioda.muthie@gmail.com",
-                phone: "085271062544",
-                age: 24,
-                address : "Tebet barat dalam"
-            },
+        res :{},
+        contacts : [],
+        contacts2: [
             // {
-            {
+            //     id: 1,
+            //     name: "Rhioda Muthie",
+            //     email: "rhioda.muthie@gmail.com",
+            //     phone: "085271062544",
+            //     age: 24,
+            //     address : "Tebet barat dalam"
+            // },
+            // {
+            // {
                 //     id: 2,
                 //     name: "Fitya Fikriyah",
                 //     email: "fifislk@gmail.com",
@@ -45,13 +48,13 @@ export class Provider extends Component {
                 //     age: 23,
                 //     address : "Pinang xxx"
                 // },
-                id: 3,
-                name: "Rhioda Muthie",
-                email: "rhioda.muthie@gmail.com",
-                phone: "085271062544",
-                age: 24,
-                address : "Tebet barat dalam"
-            }
+            //     id: 3,
+            //     name: "Rhioda Muthie",
+            //     email: "rhioda.muthie@gmail.com",
+            //     phone: "085271062544",
+            //     age: 24,
+            //     address : "Tebet barat dalam"
+            // }
             // ,
             // {
             //     id: 4,
@@ -66,6 +69,19 @@ export class Provider extends Component {
             this.setState(state => reducer(state, action));
         }
     };
+
+    async componentDidMount() {
+        const res = await axios
+            .get('https://jsonplaceholder.typicode.com/users');
+            // .then(res => console.log(res))
+            // // .then(res => console.log(res.data))
+            // .then(res => this.setState({contacts : res.data} ))
+            // // .then(json => console.log(json)))
+            // .then(res=>this.setState({res:res}))
+        // console.log(this.state.contacts)
+        // console.log(res)
+        this.setState({contacts : res.data} );
+    }
 
     render() {
         return (
