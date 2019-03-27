@@ -7,8 +7,8 @@ import { Consumer } from "../../context";
 import Contact from "./Contact";
 
 class Contacts extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
