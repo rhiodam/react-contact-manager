@@ -10,7 +10,7 @@ export default class EditContact extends Component {
         email: "",
         phone: "",
         address: "",
-        errors : {}
+        errors: {}
     };
 
     async componentDidMount() {
@@ -22,9 +22,9 @@ export default class EditContact extends Component {
         const contact = res.data;
 
         this.setState({
-            name : contact.name,
-            email : contact.email,
-            phone : contact.phone,
+            name: contact.name,
+            email: contact.email,
+            phone: contact.phone,
         })
     }
 
@@ -32,23 +32,23 @@ export default class EditContact extends Component {
         this.setState({[e.target.name]: e.target.value});
     };
 
-     onSubmit = async (dispatch, e) => {
+    onSubmit = async (dispatch, e) => {
         e.preventDefault();
         console.log(this.state);
         const {name, email, phone, address} = this.state;
 
         // Check for errors
         // Urutan berpengaruh pas pengecekan wkwkwk
-        if(name === ''){
-            this.setState({errors : {name : 'Name is required'}});
+        if (name === '') {
+            this.setState({errors: {name: 'Name is required'}});
             return;
         }
-        if(email === ''){
-            this.setState({errors : {email : 'Email is required'}});
+        if (email === '') {
+            this.setState({errors: {email: 'Email is required'}});
             return;
         }
-        if(phone === ''){
-            this.setState({errors : {phone : 'Phone is required'}});
+        if (phone === '') {
+            this.setState({errors: {phone: 'Phone is required'}});
             return;
         }
 
@@ -58,7 +58,7 @@ export default class EditContact extends Component {
         // }
 
         // New Contact object
-        const newContact = {
+        const updContact = {
             // id: uuid(),
             name,
             email,
@@ -66,13 +66,15 @@ export default class EditContact extends Component {
             // ,address
         };
 
-        const res = await axios.post(
-            'https://jsonplaceholder.typicode.com/users',
-            newContact
+        const {id} = this.props.match.params;
+
+        const res = await axios.put(
+            `https://jsonplaceholder.typicode.com/users/${id}`,
+            updContact
         );
 
         // dispatch to context
-        dispatch({type: "ADD_CONTACT", payload: res.data});
+        dispatch({type: "UPDATE_CONTACT", payload: res.data});
 
         // Clear the state
         this.setState({
@@ -80,7 +82,7 @@ export default class EditContact extends Component {
             // email: "",
             // phone: "",
             // address: "",
-            errors : {}
+            errors: {}
         });
 
         // send to the contact list component
@@ -88,7 +90,7 @@ export default class EditContact extends Component {
     };
 
     render() {
-        const {name, email, phone ,errors} = this.state;
+        const {name, email, phone, errors} = this.state;
 
         return (
             <Consumer>
@@ -137,37 +139,37 @@ export default class EditContact extends Component {
                                         error={errors.phone}
                                     />
                                     {/*<div className="form-group">*/}
-                                        {/*<label htmlFor="email">Email</label>*/}
-                                        {/*<input*/}
-                                            {/*type="email"*/}
-                                            {/*name="email"*/}
-                                            {/*className="form-control form-control-lg"*/}
-                                            {/*placeholder="Enter Email..."*/}
-                                            {/*value={email}*/}
-                                            {/*onChange={this.onChange}*/}
-                                        {/*/>*/}
+                                    {/*<label htmlFor="email">Email</label>*/}
+                                    {/*<input*/}
+                                    {/*type="email"*/}
+                                    {/*name="email"*/}
+                                    {/*className="form-control form-control-lg"*/}
+                                    {/*placeholder="Enter Email..."*/}
+                                    {/*value={email}*/}
+                                    {/*onChange={this.onChange}*/}
+                                    {/*/>*/}
                                     {/*</div>*/}
                                     {/*<div className="form-group">*/}
-                                        {/*<label htmlFor="phone">Phone</label>*/}
-                                        {/*<input*/}
-                                            {/*type="text"*/}
-                                            {/*name="phone"*/}
-                                            {/*className="form-control form-control-lg"*/}
-                                            {/*placeholder="Enter Phone..."*/}
-                                            {/*value={phone}*/}
-                                            {/*onChange={this.onChange}*/}
-                                        {/*/>*/}
+                                    {/*<label htmlFor="phone">Phone</label>*/}
+                                    {/*<input*/}
+                                    {/*type="text"*/}
+                                    {/*name="phone"*/}
+                                    {/*className="form-control form-control-lg"*/}
+                                    {/*placeholder="Enter Phone..."*/}
+                                    {/*value={phone}*/}
+                                    {/*onChange={this.onChange}*/}
+                                    {/*/>*/}
                                     {/*</div>*/}
                                     {/*<div className="form-group">*/}
-                                        {/*<label htmlFor="address">Address</label>*/}
-                                        {/*<input*/}
-                                            {/*type="text"*/}
-                                            {/*name="address"*/}
-                                            {/*className="form-control form-control-lg"*/}
-                                            {/*placeholder="Enter Address..."*/}
-                                            {/*value={address}*/}
-                                            {/*onChange={this.onChange}*/}
-                                        {/*/>*/}
+                                    {/*<label htmlFor="address">Address</label>*/}
+                                    {/*<input*/}
+                                    {/*type="text"*/}
+                                    {/*name="address"*/}
+                                    {/*className="form-control form-control-lg"*/}
+                                    {/*placeholder="Enter Address..."*/}
+                                    {/*value={address}*/}
+                                    {/*onChange={this.onChange}*/}
+                                    {/*/>*/}
                                     {/*</div>*/}
                                     <input
                                         type="submit"
