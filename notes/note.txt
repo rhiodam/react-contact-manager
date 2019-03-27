@@ -1,0 +1,14 @@
+
+
+7.6
+
+"C:\Program Files\JetBrains\WebStorm 2018.3.5\bin\runnerw64.exe" "C:\Program Files\nodejs\node.exe" "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" start
+
+> brad-contactmanager@0.1.0 start D:\Users\W\Documents\Github\rhiodam\react-contact-manager
+> react-scripts start
+
+Starting the development server...
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+Compiled with warnings.
+
