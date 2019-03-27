@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 
 // import Contact from "./components/Contact";
 import Contacts from "./components/contacts/Contacts";
@@ -28,6 +28,7 @@ class App extends Component {
         return (
             <Provider>
                 <Router>
+                {/*<Router basename={process.env.PUBLIC_URL}>*/}
                     <div className="App">
                         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
