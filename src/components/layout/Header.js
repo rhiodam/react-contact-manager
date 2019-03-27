@@ -57,9 +57,9 @@ Header.propTypes = {
   branding: PropTypes.string.isRequired
 };
 
-const headingStyle = {
-  color: "green",
-  fontSize: "20"
-};
+// const headingStyle = {
+//   color: "green",
+//   fontSize: "20"
+// };
 
 export default Header;
