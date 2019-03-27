@@ -7,10 +7,10 @@ import Header from "./components/layout/Header";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import LifecycleMethodTest from "./components/tests/LifecycleMethodTest";
-import LikeDislike from "./components/test/LikeDislike";
-import Like from "./components/test/Like";
-import Counter from "./components/test/Counter";
-import logo from "./logo.svg";
+// import LikeDislike from "./components/test/LikeDislike";
+// import Like from "./components/test/Like";
+// import Counter from "./components/test/Counter";
+// import logo from "./logo.svg";
 import "./App.css";
 
 import {Provider} from "./context";
@@ -19,7 +19,7 @@ import {Provider} from "./context";
 // import "./bootstrap/dist/css/boostrap.min.css";
 // import "bootstrap/dist/css/boostrap.min.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import bootstrap from "bootstrap";
+// import bootstrap from "bootstrap";
 import AddContact from "./components/contacts/AddContact";
 
 class App extends Component {
