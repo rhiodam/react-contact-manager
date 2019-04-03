@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
-
 // import Contact from "./components/Contact";
 import Contacts from "./components/contacts/Contacts";
 import Header from "./components/layout/Header";
@@ -12,9 +11,9 @@ import LifecycleMethodTest from "./components/tests/LifecycleMethodTest";
 // import Counter from "./components/test/Counter";
 // import logo from "./logo.svg";
 import "./App.css";
-
-import {Provider} from "./context";
-
+// Redux
+import {Provider} from 'react-redux';
+import store from './store';
 // Bootstrap
 // import "./bootstrap/dist/css/boostrap.min.css";
 // import "bootstrap/dist/css/boostrap.min.css";
@@ -23,10 +22,13 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import AddContact from "./components/contacts/AddContact";
 import EditContact from "./components/contacts/EditContact";
 
+// Context API
+// import {Provider} from "./context";
+
 class App extends Component {
     render() {
         return (
-            <Provider>
+            <Provider store={store}>
                 <Router>
                 {/*<Router basename={process.env.PUBLIC_URL}>*/}
                     <div className="App">
