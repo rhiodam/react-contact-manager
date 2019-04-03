@@ -12,3 +12,20 @@ Starting the development server...
 Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
 Compiled with warnings.
 
+
+8.3
+
+PS D:\Users\W\Documents\Github\rhiodam\react-contact-manager> npm i redux react-redux red
+ux-thunk
+npm WARN ajv-keywords@3.2.0 requires a peer of ajv@^6.0.0 but none is installed. You must
+ install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wa
+nted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ redux@4.0.1
++ redux-thunk@2.3.0
++ react-redux@6.0.1
+added 9 packages from 6 contributors and audited 32138 packages in 184.731s
+found 81 vulnerabilities (71 low, 8 moderate, 2 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
