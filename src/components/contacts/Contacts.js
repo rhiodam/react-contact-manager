@@ -3,7 +3,7 @@ import Contact from './Contact';
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
 
- // 1
+// 1
 // import {GET_CONTACTS} from "../../actions/types";
 
 // 2
