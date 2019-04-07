@@ -1,4 +1,10 @@
-import {GET_CONTACTS, DELETE_CONTACT, ADD_CONTACT} from '../actions/types';
+import {
+    GET_CONTACTS,
+    DELETE_CONTACT,
+    ADD_CONTACT,
+    GET_CONTACT,
+    UPDATE_CONTACT
+} from '../actions/types';
 
 const initialState = {
 
@@ -43,7 +49,9 @@ const initialState = {
         //     age: 23,
         //     address: "test xxx"
         // }
-    ]
+    ],
+
+    contact: {}
 };
 
 export default function (state = initialState, action) {
@@ -52,7 +60,19 @@ export default function (state = initialState, action) {
         case GET_CONTACTS :
             return {
                 ...state,
-                contacts : action.payload
+                contacts: action.payload
+            };
+
+        case GET_CONTACT :
+            return {
+                ...state,
+                contact: action.payload
+            };
+
+        case UPDATE_CONTACT :
+            return {
+                ...state,
+                contacts: action.payload
             };
 
         case ADD_CONTACT :
