@@ -1,9 +1,15 @@
 import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT} from "./types";
+import axios from "axios";
 
-export const getContacts = () => {
-    return {
-        type: GET_CONTACTS
-    }
+
+export const getContacts = () => async dispatch => {
+    // get contacts from api
+    const res =await axios.get
+    ('https://jsonplaceholder.typicode.com/users');
+    dispatch( {
+        type: GET_CONTACTS,
+        payload : res.data
+    });
 }
 
 export const addContact = (contact) => {
