@@ -35,7 +35,8 @@ class AddContact extends Component {
         }
 
         const newContact = {
-            id: uuid(),
+            // id is from API generated
+            // id: uuid(),
             name,
             email,
             phone
